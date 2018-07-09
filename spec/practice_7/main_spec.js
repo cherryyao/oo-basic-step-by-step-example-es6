@@ -98,7 +98,7 @@ describe("Person", () => {
 describe("Class", () => {
     it("should have class number", () => {
         const klass = new Class(2);
-        expect(klass.num).to.equal(2);
+        expect(klass.number).to.equal(2);
     });
 
     it("should get display name with number", () => {

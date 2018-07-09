@@ -1,15 +1,14 @@
 "use strict";
-import _ from "lodash";
-import chai from "chai";
-import sinon from "sinon";
-import sinonChai from "sinon-chai";
+const chai = require("chai");
+const sinonChai = require("sinon-chai");
 const expect = chai.expect;
 chai.use(sinonChai);
 
-import Person from "../../src/practice_8/person.js";
-import Student from "../../src/practice_8/student.js";
-import Teacher from "../../src/practice_8/teacher.js";
-import Class from "../../src/practice_8/class.js";
+const {Person} = require("../../src/practice_8/person.js");
+const {Student} = require("../../src/practice_8/student.js");
+const {Teacher} = require("../../src/practice_8/teacher.js");
+const {Class} = require("../../src/practice_8/class.js");
+
 
 describe("Person", () => {
     it("should have field name and age", () => {
@@ -27,9 +26,9 @@ describe("Person", () => {
     describe("Student", () => {
         let klass;
 
-        before(() => {
+       // before(() => {
             klass = new Class(2);
-        });
+        //});
 
         it("should have field name, age and class number", () => {
             const student = new Student(1, "Tom", 21, klass);
@@ -60,9 +59,9 @@ describe("Person", () => {
     describe("Teacher", () => {
         let klass;
 
-        before(() => {
+        //before(() => {
             klass = new Class(2);
-        });
+        //});
 
         it("should have field name, age and class number", () => {
             const teacher = new Teacher(1, "Tom", 21, klass);
@@ -82,6 +81,26 @@ describe("Person", () => {
                 const teacher = new Teacher(1, "Tom", 21);
                 const introduce = teacher.introduce();
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.");
+            });
+        });
+
+        describe("#introduceWith", () => {
+            let studentJerry;
+
+            //before(() => {
+                studentJerry = new Student(1, "Jerry", 8, klass);
+            //});
+
+            it("should return I am teaching some guy, given my class is same with this guy's class", () => {
+                const teacher = new Teacher(1, "Tom", 21, klass);
+                const introduce = teacher.introduceWith(studentJerry);
+                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach Jerry.");
+            });
+
+            it("should return I am teaching some guy, given my class is different with this guy's class", () => {
+                const teacher = new Teacher(1, "Tom", 21, new Class(10));
+                const introduce = teacher.introduceWith(studentJerry);
+                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I don't teach Jerry.");
             });
         });
     });

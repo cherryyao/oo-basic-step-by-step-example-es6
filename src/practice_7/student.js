@@ -1,4 +1,4 @@
-const {Person} = require ("../../src/practice_2/person.js");
+const {Person} = require ("../../src/practice_7/person.js");
 
 
 class Student extends Person{
@@ -7,7 +7,7 @@ class Student extends Person{
         this.klass = klass;
     }
     introduce(){
-        return (super.introduce()+" I am a Student. I am at Class "+this.klass.num+".")
+        return (super.introduce()+" I am a Student. I am at Class "+this.klass.number+".")
     }
 
 }
