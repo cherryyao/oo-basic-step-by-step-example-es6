@@ -11,7 +11,7 @@ class Class{
             this.leader = student;
         }else{
             this.leader = null;
-            console.log("It is not one of us.");
+           // console.log("It is not one of us.");
         }
     }
     appendMember(student){
@@ -21,8 +21,9 @@ class Class{
         return student.klass.number === this.number;
     }
 
-    equal(klass){
-        return klass.number !== this.number;
+    equal(klasses){
+        return klasses.some(klass=> {return klass.number === this.number} );
+        
      }
 
 }
