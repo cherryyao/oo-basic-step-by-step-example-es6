@@ -1,12 +1,13 @@
 "use strict";
-import chai from "chai";
-import sinonChai from "sinon-chai";
+var chai = require("chai");
+var sinonChai = require("sinon-chai");
 const expect = chai.expect;
 chai.use(sinonChai);
 
-import Person from "../../src/practice_4/person.js";
-import Student from "../../src/practice_4/student.js";
-import Worker from "../../src/practice_4/worker.js";
+const {Person} = require ("../../src/practice_4/person.js");
+const {Student} = require ("../../src/practice_4/student.js");
+const {Worker} = require ("../../src/practice_4/worker.js");
+
 
 describe("Person", () => {
     it("should have field name and age", () => {
