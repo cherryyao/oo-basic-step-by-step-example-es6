@@ -1,18 +1,20 @@
-const {Person} = require ("../../src/practice_6/person.js");
+import Person from "../practice_6/person";
 
-class Teacher extends Person{
-    constructor(name,age,klass){
-        super(name,age);
-        this.klass = klass;
+export default class Teacher extends Person {
+    constructor(name,age,klass) {
+      super(name, age); 
+      this.klass = klass;
     }
-    introduce(){
-        if(this.klass === undefined){
-            return (super.introduce()+" I am a Teacher. I teach No Class.");
+  
+    introduce() {
+        if(this.klass == null){
+            return super.introduce() + " I am a Teacher. I teach No Class.";
         }else{
-            return (super.introduce()+" I am a Teacher. I teach Class "+this.klass+".");
-        }
-       
+            return super.introduce() + " I am a Teacher. I teach Class "+ this.klass +".";
+        }         
     }
+  }
 
-}
-module.exports = {Teacher};
+
+
+

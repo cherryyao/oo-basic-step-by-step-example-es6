@@ -1,28 +1,32 @@
-
-class Class{
+export default class Class{
     constructor(number){
-        this.number = number;       
+        this.number = number;
     }
+
     getDisplayName(){
-        return ("Class "+this.number);
+        return "Class " + this.number
     }
 
     assignLeader(student){
-        if(student.klass.number ===  this.number ){
+        if(this.equal(student.klass)){
             this.leader = student;
         }else{
-            this.leader = null;
-            console.log("It is not one of us.");
-        }
+            console.log ("It is not one of us.")
+        } 
     }
+
     appendMember(student){
-         student.klass = this;       
-             }
+        // student.klass = this;  在Class类中不应该直接修改student类中的值
+        student.changeKlass(this);
+    }
 
-    equal(klass){
-        return klass.number !== this.number;
-     }
+    equal(peopleklass){
+        return this.number === peopleklass.number;
+    }
 
+    verifyLeader(student) {
+        return this.leader !== undefined && this.leader.is(student);
+    }
 }
-module.exports = {Class};
+
 

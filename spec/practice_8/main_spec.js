@@ -4,10 +4,10 @@ const sinonChai = require("sinon-chai");
 const expect = chai.expect;
 chai.use(sinonChai);
 
-const {Person} = require("../../src/practice_8/person.js");
-const {Student} = require("../../src/practice_8/student.js");
-const {Teacher} = require("../../src/practice_8/teacher.js");
-const {Class} = require("../../src/practice_8/class.js");
+const Person = require("../../src/practice_8/person.js");
+const Student = require("../../src/practice_8/student.js");
+const Teacher = require("../../src/practice_8/teacher.js");
+const Class = require("../../src/practice_8/class.js");
 
 
 describe("Person", () => {
@@ -26,9 +26,9 @@ describe("Person", () => {
     describe("Student", () => {
         let klass;
 
-       // before(() => {
+        before(() => {
             klass = new Class(2);
-        //});
+        });
 
         it("should have field name, age and class number", () => {
             const student = new Student(1, "Tom", 21, klass);
@@ -59,9 +59,9 @@ describe("Person", () => {
     describe("Teacher", () => {
         let klass;
 
-        //before(() => {
+        before(() => {
             klass = new Class(2);
-        //});
+        });
 
         it("should have field name, age and class number", () => {
             const teacher = new Teacher(1, "Tom", 21, klass);
@@ -87,9 +87,9 @@ describe("Person", () => {
         describe("#introduceWith", () => {
             let studentJerry;
 
-            //before(() => {
+            before(() => {
                 studentJerry = new Student(1, "Jerry", 8, klass);
-            //});
+            });
 
             it("should return I am teaching some guy, given my class is same with this guy's class", () => {
                 const teacher = new Teacher(1, "Tom", 21, klass);

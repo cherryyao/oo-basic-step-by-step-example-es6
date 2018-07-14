@@ -8,7 +8,7 @@ chai.use(sinonChai);
 
 import Person from "../../src/practice_7/person.js";
 import Student from "../../src/practice_7/student.js";
-import Teacher from "../../src/practice_7/teacher-option2.js";
+import Teacher from "../../src/practice_7/teacher.js";
 import Class from "../../src/practice_7/class.js";
 
 describe("Option-2 Person", () => {

@@ -1,31 +1,31 @@
-class Class{
+export default class Class{
     constructor(number){
-        this.number = number;       
+        this.number = number;
     }
+
     getDisplayName(){
-        return ("Class "+this.number);
+        return "Class " + this.number
     }
 
     assignLeader(student){
-        if(student.klass.number ===  this.number ){
+        if (this.equal(student.klass)) {
             this.leader = student;
         }else{
-            this.leader = null;
-           // console.log("It is not one of us.");
+            console.log("It is not one of us.")
         }
     }
-    appendMember(student){
-         student.klass = this;       
-             }
-    isIn(student){
-        return student.klass.number === this.number;
+
+    verifyLeader(student) {
+        return this.leader !== undefined && this.leader.is(student);
     }
 
-    equal(klasses){
-        return klasses.some(klass=> {return klass.number === this.number} );
-        
-     }
+    appendMember(student){
+        student.changeClass(this);
+    }
 
+    equal(peopleklass){
+        return this.number === peopleklass.number;
+    }
 }
-module.exports = {Class};
+
 

@@ -1,31 +1,53 @@
-class Class{
+export default class Class{
     constructor(number){
-        this.number = number;       
+        this.number = number;
+        this.leaderAssignedListeners = [];
+        this.joinListeners = [];
     }
+
     getDisplayName(){
-        return ("Class "+this.number);
+        return "Class " + this.number
     }
 
     assignLeader(student){
-        if(student.klass.number ===  this.number ){
+        if(this.number === student.klass.number){
             this.leader = student;
+            this._notifyLeaderAssigned(student);
         }else{
-            this.leader = null;
-           // console.log("It is not one of us.");
-        }
+            console.log ("It is not one of us.")
+        } 
     }
+
+    verifyLeader(student) {
+        return this.leader !== undefined && this.leader.is(student);
+    }
+
     appendMember(student){
-         student.klass = this;       
-             }
-    isIn(student){
-        return student.klass.number === this.number;
+        student.changeClass(this);
+        this._nofiyJoined(student);
     }
 
-    equal(klasses){
-        return klasses.some(klass=> {return klass.number === this.number} );
-        
-     }
+    equal(peopleklass){
+        return this.number === peopleklass.number;
+    }
 
+    registerAssignLeaderListener(listener){
+        this.leaderAssignedListeners.push(listener);
+    }
+
+    _notifyLeaderAssigned(leader){
+        this.leaderAssignedListeners.forEach(listener => listener.nofityLeaderAssigned(leader, this));
+    }
+
+    registerJoinListener(listener){
+        this.joinListeners.push(listener);
+    }
+
+    _nofiyJoined(student) {
+        this.joinListeners.forEach(listener => listener.nofiyJoined(student, this));
+    }
 }
-module.exports = {Class};
+
+
+
 

@@ -1,12 +1,11 @@
 "use strict";
-var chai = require("chai");
-var sinonChai = require("sinon-chai");
+import chai from "chai";
+import sinonChai from "sinon-chai";
 const expect = chai.expect;
 chai.use(sinonChai);
-
-const {Person} = require ("../../src/practice_5/person.js");
-const {Student} = require ("../../src/practice_5/student.js");
-const {Worker} = require ("../../src/practice_5/worker.js");
+import Person from "../../src/practice_5/person.js";
+import Student from "../../src/practice_5/student.js";
+import Worker from "../../src/practice_5/worker.js";
 
 
 describe("Person", () => {

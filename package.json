@@ -1,31 +1,29 @@
 {
-  "name": "take-out-food",
+  "name": "oo-step-by-step-es6",
   "version": "1.0.0",
-  "description": "## 考试目标",
-  "main": "index.js",
-  "scripts": {
-    "test": "jasmine-node --verbose spec",
-    "test-single": "jasmine-node --verbose "
-  },
+  "description": "Powered by ThoughtWorks School",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/freewind/take-out-food.git"
+    "url": "git+https://github.com/tw-online-quiz/oo-step-by-step-es6.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "ThoughtWorks School",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/freewind/take-out-food/issues"
+    "url": "https://github.com/tw-online-quiz/oo-step-by-step-es6/issues"
   },
-  "homepage": "https://github.com/freewind/take-out-food#readme",
-  "devDependencies": {
-    "jasmine": "^2.99.0",
-    "jasmine-console-reporter": "^1.2.8"
+  "homepage": "https://school.thoughtworks.cn",
+  "scripts": {
+    "test": "mocha spec/**/*.js --require babel/register --require source-map-support/register"
   },
   "dependencies": {
     "chai": "^4.1.2",
-    "jasmine-node": "^1.15.0",
-    "sinon": "^6.1.3",
-    "sinon-chai": "^3.2.0"
+    "lodash": "3.9.3"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "mocha": "^4.0.1",
+    "sinon": "^4.0.1",
+    "sinon-chai": "^2.14.0",
+    "source-map-support": "^0.3.3"
   }
 }

@@ -1,32 +1,41 @@
-const {Person} = require ("../../src/practice_11/person.js");
+import Person from "../practice_11/person";
 
-class Teacher extends Person{
-    constructor(id,name,age,klasses){
-        super(id,name,age);
-        this.klasses = klasses;
+export default class Teacher extends Person {
+    constructor(id,name,age,klasses) {
+      super(id, name, age); 
+      this.klasses = klasses;
     }
-    introduce(){
-        if(this.klasses === undefined){
-            return (super.introduce()+" I am a Teacher. I teach No Class.");
+  
+    introduce() {
+        if(this.klasses == undefined || this.klasses.length === 0){
+            return super.introduce() + " I am a Teacher. I teach No Class.";
         }else{
-            return (super.introduce()+` I am a Teacher. I teach Class ${this.klasses.map(klass=> klass.number).join(', ')}.`);
-        }
-       
+            let teachClass = this.klasses.map(klass => klass.number).join(", ");
+            return super.introduce() + " I am a Teacher. I teach Class "+ teachClass +".";
+        }         
     }
+
     introduceWith(student){
-        if(student.klass.equal(this.klasses)){
-           return (super.introduce()+" I am a Teacher. I teach Jerry.");
+        let isStudent = this.klasses.some( klass => klass.equal(student.klass));
+        if(isStudent){
+            return super.introduce() +" I am a Teacher. I teach "+ student.name +".";
         }else{
-            return (super.introduce()+" I am a Teacher. I don't teach Jerry.");
-        }       
-    }
-    isTeaching(student){
-       if(student.klass.isIn(student)){
-        introduceWith(student);
-       } 
-
+            return super.introduce() +" I am a Teacher. I don't teach Jerry.";
+        }
     }
 
-}
-module.exports = {Teacher};
+    nofityLeaderAssigned(leader, klass){
+        console.log(`I am ${this.name}. I know ${leader.name} become Leader of ${klass.getDisplayName()}.`)
+    }
+
+    nofiyJoined(student, klass){
+        console.log(`I am ${this.name}. I know ${student.name} has joined ${klass.getDisplayName()}.`);
+    }
+  }
+
+
+
+
+
+
 

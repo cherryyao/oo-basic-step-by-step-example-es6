@@ -1,21 +1,24 @@
-class Class{
+export default class Class{
     constructor(number){
-        this.number = number;       
+        this.number = number;
     }
+
     getDisplayName(){
-        return ("Class "+this.number);
+        return "Class " + this.number
     }
 
     assignLeader(student){
-        if(student.klass.number ===  this.number ){
+        if(this.equal(student.klass)){
             this.leader = student;
-        }else{
-            this.leader = {};
         }
     }
-    equal(klass){
-        return klass.number !== this.number;
-     }
 
+    equal(peopleklass){
+        return this.number === peopleklass.number;
+    }
+
+    vertifyLeader(student){
+        return this.leader !== undefined && this.leader.is(student);
+    }
 }
-module.exports = {Class};
+

@@ -1,13 +1,13 @@
-
-class Class{
+export default class Class{
     constructor(number){
         this.number = number;
     }
+
     getDisplayName(){
-        return ("Class "+this.number);
+        return "Class " + this.number
     }
-    equal(klass){
-       return klass.number !== this.number;
+
+    equal(peopleklass){
+        return this.number === peopleklass.number;
     }
 }
-module.exports = {Class};
